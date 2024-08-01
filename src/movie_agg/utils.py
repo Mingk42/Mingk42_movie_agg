@@ -30,4 +30,19 @@ def merge(load_dt=20240724):
     print(df_where.dtypes)
     
     
-    return df_where
+    df_where['multiMovieYn'] = df_where['multiMovieYn'].fillna('unknown')
+    df_where['repNationCd'] = df_where['repNationCd'].fillna('unknown')
+
+    u_mul=df_where[df_where["multiMovieYn"]!="unknown"]
+    u_nat=df_where[df_where["repNationCd"]!="unknown"]
+
+    m_df=pd.merge(u_mul, u_nat, on="movieCd", suffixes=["_m","_n"])
+
+    print("merged DF")
+    print(m_df)
+
+    
+    return m_df
+
+
+merge()
