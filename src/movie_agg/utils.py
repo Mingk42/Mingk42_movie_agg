@@ -1,6 +1,8 @@
 import pandas as pd
 
 def merge(load_dt="20240724"):
+    import numpy as np
+
     read_df = pd.read_parquet("/home/root2/tmp/test_parquet/")
     cols = [
             'movieCd',      # 영화의 대표코드를 출력합니다.
@@ -14,7 +16,9 @@ def merge(load_dt="20240724"):
     
     df = read_df[cols]
     
-    df_where=df[df["movieCd"]=="20247781"].copy()
+   #df_where=df[df["movieCd"]=="20247781"].copy()
+
+    df_where =df[np.logical_and(df["movieCd"]=="20247781",df_where["load_dt"]==load_dt)].copy()
 
     print(df_where)
     print(df_where.dtypes)
@@ -25,8 +29,5 @@ def merge(load_dt="20240724"):
 
     print(df_where.dtypes)
     
+    
     return df_where
-
-
-
-merge()
