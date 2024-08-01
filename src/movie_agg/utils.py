@@ -1,6 +1,6 @@
 import pandas as pd
 
-def merge(load_dt="20240724"):
+def merge(load_dt=20240724):
     import numpy as np
 
     read_df = pd.read_parquet("/home/root2/tmp/test_parquet/")
