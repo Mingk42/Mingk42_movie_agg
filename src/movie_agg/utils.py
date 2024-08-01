@@ -18,7 +18,7 @@ def merge(load_dt=20240724):
     
    #df_where=df[df["movieCd"]=="20247781"].copy()
 
-    df_where =df[np.logical_and(df["movieCd"]=="20247781",df_where["load_dt"]==load_dt)].copy()
+    df_where =df[np.logical_and(df["movieCd"]=="20247781",df["load_dt"]==load_dt)].copy()
 
     print(df_where)
     print(df_where.dtypes)
